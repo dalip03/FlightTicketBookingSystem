@@ -1,0 +1,97 @@
+﻿@model IEnumerable<FlightTicketBookingSystem.Models.TicketReserve_tbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<div class="sticky-header header-section ">
+    <div class="header-left">
+
+        <!--toggle button start-->
+        <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+       
+        <div class="clearfix"> </div>
+    </div>
+    
+    <div class="clearfix"> </div>
+</div>
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+    <div class="main-page">
+        <h2 class="title1">Details</h2>
+        <div class="blank-page widget-shadow scroll" id="style-2 div1">
+
+            
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Plane_tbls.APlaneName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Resfrom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResTo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResDepDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlaneSeat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResTicketPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResTicketType)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Plane_tbls.APlaneName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Resfrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResDepDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaneSeat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResTicketPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResTicketType)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ResId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ResId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ResId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

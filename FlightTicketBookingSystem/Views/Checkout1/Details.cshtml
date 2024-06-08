@@ -1,0 +1,139 @@
+﻿@model FlightTicketBookingSystem.Models.BookingDetailsData
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="container" style="min-height:90vh;">
+    <div class="wrapper">
+
+        <div style="padding-bottom:20px">
+
+            <div style="text-align:center">
+                <h2>Thank you for the Bokking ticket</h2>
+            </div>
+            <div>
+                <h4>Booking Details</h4>
+                <hr />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomerId)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.bCusPhoneNum)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AdharNumber)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ResTicketPrice)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Resfrom)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ResTo)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Time)
+
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Date)
+
+                            </th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.CustomerId)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.FirstName)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.LastName)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.bCusPhoneNum)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.AdharNumber)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ResTicketPrice)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Resfrom)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ResTo)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Time)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Date)
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                    @* new*@
+                    <!--<dt>
+                        @Html.DisplayNameFor(model => model.Time)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Time)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Date)
+                    </dd>
+
+                </dl>-->
+            </div>
+            <p>
+                @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")*@
+                @* @Html.ActionLink("Confirmation", "Confirmation", "CustomersBookingDetails")*@
+                @Html.ActionLink("Back to Home", "Index", "FlightSearch")
+            </p>
+
+        </div>
+    </div>
+</section>
+

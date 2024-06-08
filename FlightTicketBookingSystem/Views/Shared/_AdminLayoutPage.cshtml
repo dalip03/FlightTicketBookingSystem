@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Template/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+    <!-- Custom CSS -->
+    <link href="~/Template/web/css/style.css" rel='stylesheet' type='text/css' />
+
+    <!-- font-awesome icons CSS -->
+    <link href="~/Template/web/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons CSS-->
+    <!-- side nav css file -->
+    <link href='~/Template/web/css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- //side nav css file -->
+    <!-- js-->
+    <script src="~/Template/web/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Template/web/js/modernizr.custom.js"></script>
+
+    <!--webfonts-->
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <!--//webfonts-->
+   
+   
+   
+</head>
+<body class="cbp-spmenu-push">
+    @if (User.IsInRole("Dalip01"))
+    {
+        <div class="main-content">
+            <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+                <!--left-fixed -navigation-->
+                <aside class="sidebar-left" style=" background-color: rgb(51,76,153); ">
+                    <nav class="navbar navbar-inverse">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+
+                       
+
+
+                            <h1><a class="navbar-brand" href="/Admin/Deshboard"><span class="fa fa-area-chart"></span> Udaan <span class="dashboard_text">Yatra</span></a></h1>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="sidebar-menu">
+                                <li class="header">MAIN NAVIGATION</li>
+
+                               
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>Airlines</span>
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>@Html.ActionLink("Add Airline", "Create", "AeroPlane")</li>
+                                        <li>@Html.ActionLink("View Airline Details", "Index", "AeroPlane")</li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>Flight's</span>
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                                    <ul class="treeview-menu">
+
+                                        <li>@Html.ActionLink("Add Flight Details", "Create", "FlightScehdule")</li>
+                                        <li>@Html.ActionLink("View Flight Details", "Index", "FlightScehdule")</li>
+                                        @* <li><a href="icons.html"><i class="fa fa-angle-right"></i> Flight Details</a></li>*@
+                                    </ul>
+                                </li>
+                                <li>
+                                   
+                                 
+                                  @Html.ActionLink("User Deshboard", "Index", "FlightSearch")
+                                  
+                                </li>
+
+                                <li>
+                                    @Html.ActionLink("Users Details", "Index", "UserAccounts")
+                                </li>
+
+                                <li>
+                                    @Html.ActionLink("Ticket Booked", "Index", "Checkout1")
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </aside>
+            </div>
+        </div>
+
+    }
+
+        <div>
+            @RenderBody()
+        </div>
+
+
+
+        @*--footer-- >
+
+        < div class="footer">*@
+<p>&copy; Design by Dalip  <a href="https://w3layouts.com/" target= "_blank" > w3layouts </ a ></ p >
+
+
+
+<script src="~/Template/web/js/classie.js"></script>
+<script>
+    var menuLeft = document.getElementById('cbp-spmenu-s1'),
+        showLeftPush = document.getElementById('showLeftPush'),
+        body = document.body;
+
+    showLeftPush.onclick = function () {
+        classie.toggle(this, 'active');
+        classie.toggle(body, 'cbp-spmenu-push-toright');
+        classie.toggle(menuLeft, 'cbp-spmenu-open');
+        disableOther('showLeftPush');
+    };
+
+
+    function disableOther(button) {
+        if (button !== 'showLeftPush') {
+            classie.toggle(showLeftPush, 'disabled');
+        }
+    }
+</script>
+<!-- //Classie --><!-- //for toggle left push menu script -->
+<!--scrolling js-->
+<script src="~/Template/web/js/jquery.nicescroll.js"></script>
+<script src="~/Template/web/js/scripts.js"></script>
+<!--//scrolling js-->
+<!-- side nav js -->
+<script src='~/Template/web/js/SidebarNav.min.js' type='text/javascript'></script>
+<script>
+    $('.sidebar-menu').SidebarNav()
+</script>
+<!-- //side nav js -->
+<!-- for index page weekly sales java script -->
+<script src="~/Template/web/js/SimpleChart.js"></script>
+
+<!-- //for index page weekly sales java script -->
+<!-- Bootstrap Core JavaScript -->
+<script src="~/Template/web/js/bootstrap.js"></script>
+<!-- //Bootstrap Core JavaScript -->
+
+</body>
+</html>

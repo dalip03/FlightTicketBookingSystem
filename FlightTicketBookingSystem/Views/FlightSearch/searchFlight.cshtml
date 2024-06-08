@@ -1,0 +1,91 @@
+﻿@model IEnumerable<FlightTicketBookingSystem.Models.AeroPlaneInfo>
+@{
+    ViewBag.Title = "Search Flight Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<center>*@
+<section class="container" style="min-height:90vh;">
+    <div class="wrapper">
+        <div style="text-align:center; padding-bottom:20px;">
+            <h3>Available Flights</h3>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>resid</th>
+                        <th>Plane Name</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Seats Available</th>
+                        <th>Flight Time</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @using System.Globalization;
+                    @foreach (var item in ViewBag.ss)
+                    {
+
+                        DateTime date;
+                        DateTime.TryParseExact(item.ResDepDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+
+                        DateTime currentDate;
+                        DateTime.TryParseExact(DateTime.Now.ToString("yyyy-MM-dd"), "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out currentDate);
+
+
+
+                        int result = DateTime.Compare(date, currentDate);
+                        if (result > 0)
+                        {
+                            <tr>
+                                <td>@item.ResId</td>
+                                <td>
+                                    @{
+                                        int pi = int.Parse(item.PlaneId.ToString());
+                                        var dd = new FlightTicketBookingSystem.Models.ContextCS();
+                                        var pname = dd.aeroPlaneInfos.Where(a => a.Planeid == pi).FirstOrDefault();
+                                        @pname.APlaneName}
+
+                                </td>
+
+                                <td>@item.Resfrom</td>
+                                <td>@item.ResTo</td>
+                                <td>@item.PlaneSeat</td>
+                                <td>@item.ResTime</td>.
+                                <td>@item.ResTicketPrice</td>
+                                <td>@item.ResTicketType</td>
+
+                                @{
+                                    Session["bookingPrice"] = item.ResTicketPrice;
+                                    Session["Resfrom"] = item.Resfrom;
+                                    Session["ResTo"] = item.ResTo;
+                                    //new
+                                    Session["ResTime"] = item.ResTime;
+                                    Session["Date"] = item.ResDepDate;
+                                }
+                                @*<td>@Html.ActionLink("Book", "Details", "FlightScehdule", new { id = item.ResId }, null)</td>*@
+                                <td>@Html.ActionLink("Book", "Create", "CustomersBookingDetails")</td>
+
+                            </tr>
+                        }
+                        else
+                        {
+
+                            Server.TransferRequest("searchFlightDetails");
+                        }
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+ @*</center>*@

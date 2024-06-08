@@ -1,0 +1,65 @@
+﻿@model FlightTicketBookingSystem.Models.UserAccount
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@using (Html.BeginForm())
+{*@
+    @Html.AntiForgeryToken()
+
+
+    <div class="admLoginL">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="FormcontainerL">
+                <div>
+                    <div class="contents">
+                        <h4><strong> Login</strong></h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="ddcontainerL">
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2 lbltxt" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2 lbltxt" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 Lbtn">
+                        <input type="submit" value="Login" class="btn btn-default" />
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="padding:10px; text-align:center;">
+                    @Html.ActionLink("Don't have a Account : Signup", "Signup", "ProjectAuth")
+                </div>
+
+
+            </div>
+        }
+    </div>
+
+
+
+
+

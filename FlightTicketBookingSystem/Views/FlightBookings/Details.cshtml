@@ -1,0 +1,75 @@
+﻿@model FlightTicketBookingSystem.Models.FlightBooking
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FlightBooking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BCusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BCusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bCusAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bCusAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bCusEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bCusEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bCusSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bCusSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bCusPhoneNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bCusPhoneNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdharNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdharNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

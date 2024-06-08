@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FlightTicketBookingSystem.Models.FlightBooking>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BCusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bCusAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bCusEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bCusSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bCusPhoneNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdharNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BCusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bCusAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bCusEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bCusSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bCusPhoneNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdharNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.bid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.bid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.bid })
+        </td>
+    </tr>
+}
+
+</table>
